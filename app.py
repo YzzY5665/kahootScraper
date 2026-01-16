@@ -8,6 +8,7 @@ CORS(app)  # allow browser / Godot Web Export access
 
 # ---------------------------------------------------------------------------
 # Configuration
+# this is currently ran on https://kahootscraper.onrender.com
 # ---------------------------------------------------------------------------
 
 KAHOOT_URL = "https://kahoot.it/rest/kahoots/{}"
