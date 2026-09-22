@@ -23,6 +23,13 @@ python app.py
 
 Serves on `http://localhost:10000`.
 
+## Frontend
+
+[docs/index.html](docs/index.html) is a plain HTML/JS page that calls
+`/scrape` and dumps the raw JSON response. It's served via GitHub Pages
+(Settings → Pages → Deploy from branch `main`, folder `/docs`), and should
+be mapped to a `yzzy.online` subdomain to satisfy the API's CORS rule.
+
 ## Deployment
 
 Deployed to [Render](https://render.com) via [render.yaml](render.yaml),
