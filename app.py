@@ -1,4 +1,5 @@
 import logging
+import re
 
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -27,6 +28,7 @@ logger = logging.getLogger(__name__)
 
 KAHOOT_URL = "https://kahoot.it/rest/kahoots/{}"
 REQUEST_TIMEOUT = 5  # seconds
+QUIZ_ID_RE = re.compile(r"^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$")
 
 # ---------------------------------------------------------------------------
 # Kahoot scraping logic
@@ -68,7 +70,7 @@ def scrape():
             "error": "Missing quiz_id"
         }), 400
 
-    if not quiz_id.isalnum():
+    if not QUIZ_ID_RE.match(quiz_id):
         return jsonify({
             "error": "Invalid quiz_id"
         }), 400
